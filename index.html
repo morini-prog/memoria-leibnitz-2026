@@ -1,0 +1,2084 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memoria Institucional 2026 · Jornadas de Formación Situada | Instituto Leibnitz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --bg-primary: #FAF8F5;
+      --bg-secondary: #F3EFE6;
+      --bg-card: #FFFFFF;
+      --bg-dark: #0F1D2F;
+      --bg-dark-accent: #172B44;
+      --text-primary: #142132;
+      --text-secondary: #4A5568;
+      --text-muted: #718096;
+      --accent-primary: #1E40AF;
+      --accent-secondary: #B45309;
+      --accent-gold: #D97706;
+      --accent-teal: #0F766E;
+      --accent-emerald: #15803D;
+      --border-color: #E2DDD3;
+      --border-strong: #CBD5E1;
+      --shadow-sm: 0 2px 8px -2px rgba(20, 33, 50, 0.06);
+      --shadow-md: 0 10px 25px -5px rgba(20, 33, 50, 0.08), 0 8px 10px -6px rgba(20, 33, 50, 0.04);
+      --shadow-lg: 0 20px 35px -10px rgba(20, 33, 50, 0.12);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --font-serif: 'Fraunces', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0B131E;
+      --bg-secondary: #131F30;
+      --bg-card: #162436;
+      --bg-dark: #070C14;
+      --bg-dark-accent: #1E293B;
+      --text-primary: #F1F5F9;
+      --text-secondary: #CBD5E1;
+      --text-muted: #94A3B8;
+      --accent-primary: #60A5FA;
+      --accent-secondary: #F59E0B;
+      --accent-gold: #FBBF24;
+      --accent-teal: #2DD4BF;
+      --accent-emerald: #4ADE80;
+      --border-color: #263850;
+      --border-strong: #334155;
+      --shadow-sm: 0 2px 8px -2px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 20px 35px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.65;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    /* Progress Bar */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-primary), var(--accent-gold), var(--accent-teal));
+      z-index: 1000;
+      transition: width 0.1s ease;
+    }
+
+    /* Top Navigation Bar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: rgba(250, 248, 245, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 1.5rem;
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    [data-theme="dark"] .topbar {
+      background: rgba(11, 19, 30, 0.88);
+    }
+
+    .topbar-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .brand-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--bg-dark);
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1.15rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* Search Input */
+    .search-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-wrapper i {
+      position: absolute;
+      left: 0.75rem;
+      width: 16px;
+      height: 16px;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .search-input {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.45rem 0.75rem 0.45rem 2.2rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-family: var(--font-sans);
+      width: 210px;
+      transition: all 0.25s ease;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent-primary);
+      width: 260px;
+      background: var(--bg-card);
+      box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.12);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.48rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      border-color: var(--accent-primary);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary {
+      background: var(--accent-primary);
+      color: #FFFFFF;
+      border-color: var(--accent-primary);
+    }
+
+    .btn-primary:hover {
+      background: #1D4ED8;
+      border-color: #1D4ED8;
+      color: #FFFFFF;
+    }
+
+    .btn-gold {
+      background: rgba(217, 119, 6, 0.12);
+      color: var(--accent-secondary);
+      border-color: rgba(217, 119, 6, 0.3);
+    }
+
+    .btn-gold:hover {
+      background: var(--accent-gold);
+      color: #FFF;
+      border-color: var(--accent-gold);
+    }
+
+    .btn i {
+      width: 15px;
+      height: 15px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0F1D2F 0%, #172B44 60%, #1F3A5C 100%);
+      color: #FFFFFF;
+      padding: 4rem 1.5rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(217, 119, 6, 0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -150px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 992px) {
+      .hero-container {
+        grid-template-columns: 1.5fr 1fr;
+        align-items: center;
+      }
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #FDE68A;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-lead {
+      font-size: 1.08rem;
+      color: #E2E8F0;
+      max-width: 680px;
+      margin-bottom: 1.75rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .aside-callout {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-left: 4px solid #F59E0B;
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      color: #F8FAFC;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .aside-callout-header {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #FDE68A;
+      margin-bottom: 0.65rem;
+    }
+
+    .aside-callout p {
+      font-size: 0.92rem;
+      color: #E2E8F0;
+      line-height: 1.6;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      display: block;
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: #CBD5E1;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Main Layout */
+    .layout {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      .layout {
+        grid-template-columns: 260px 1fr;
+        align-items: start;
+      }
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      position: sticky;
+      top: 5.2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .sidebar-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      font-weight: 700;
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.86rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .nav-link i {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      opacity: 0.75;
+    }
+
+    .nav-link:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+
+    .nav-link.active {
+      background: rgba(30, 64, 175, 0.1);
+      color: var(--accent-primary);
+      font-weight: 600;
+    }
+
+    [data-theme="dark"] .nav-link.active {
+      background: rgba(96, 165, 250, 0.15);
+    }
+
+    .sidebar-box {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      padding: 0.9rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .sidebar-box-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .progress-bar-wrap {
+      width: 100%;
+      height: 8px;
+      background: var(--border-color);
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 0.5rem 0;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-teal), var(--accent-emerald));
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* Content Sections */
+    .content-area {
+      display: flex;
+      flex-direction: column;
+      gap: 2.75rem;
+      min-width: 0;
+    }
+
+    .section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      scroll-margin-top: 5.5rem;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .section-eyebrow {
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.45rem, 2.5vw, 1.85rem);
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.25;
+    }
+
+    .prose p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .prose p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Propósitos Interactive Grid */
+    .purposes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .purpose-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      transition: all 0.2s ease;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .purpose-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .purpose-card.highlighted {
+      border-color: var(--accent-gold);
+      background: rgba(217, 119, 6, 0.07);
+    }
+
+    .purpose-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .purpose-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--bg-card);
+      color: var(--accent-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-color);
+    }
+
+    .purpose-num {
+      font-family: var(--font-serif);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .purpose-text {
+      font-size: 0.93rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+
+    /* Collapsible / Details Styling */
+    .jornadas-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      padding: 0.85rem 1rem;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .pill-btn {
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pill-btn.active, .pill-btn:hover {
+      background: var(--accent-primary);
+      color: #FFF;
+      border-color: var(--accent-primary);
+    }
+
+    /* Jornada Accordion Card */
+    .jornada-accordion {
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background: var(--bg-card);
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .jornada-accordion:last-child {
+      margin-bottom: 0;
+    }
+
+    .jornada-accordion[open] {
+      border-color: var(--accent-primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .jornada-summary {
+      list-style: none;
+      padding: 1.35rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: var(--bg-secondary);
+      transition: background 0.2s ease;
+      user-select: none;
+    }
+
+    .jornada-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .jornada-summary:hover {
+      background: rgba(30, 64, 175, 0.06);
+    }
+
+    .jornada-summary-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .jornada-date-badge {
+      background: var(--bg-dark);
+      color: #FFF;
+      padding: 0.45rem 0.8rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .jornada-date-badge.mayo {
+      background: #9A3412;
+    }
+
+    .jornada-date-badge.agosto {
+      background: #0F766E;
+    }
+
+    .jornada-heading h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .jornada-heading p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    .chevron-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, background 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .jornada-accordion[open] .chevron-icon {
+      transform: rotate(180deg);
+      background: var(--accent-primary);
+      color: #FFF;
+      border-color: var(--accent-primary);
+    }
+
+    .jornada-body {
+      padding: 1.5rem;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .jornada-intro {
+      font-size: 0.98rem;
+      color: var(--text-secondary);
+      padding-bottom: 0.5rem;
+      border-bottom: 1px dashed var(--border-color);
+    }
+
+    /* Inner Sub-accordions */
+    .sub-accordion {
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      background: var(--bg-primary);
+      overflow: hidden;
+    }
+
+    .sub-summary {
+      list-style: none;
+      padding: 0.85rem 1.1rem;
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-primary);
+      background: var(--bg-secondary);
+    }
+
+    .sub-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .sub-summary-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sub-summary-title i {
+      width: 17px;
+      height: 17px;
+      color: var(--accent-primary);
+    }
+
+    .sub-content {
+      padding: 1rem 1.25rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .styled-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .styled-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      font-size: 0.93rem;
+      color: var(--text-secondary);
+    }
+
+    .styled-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0.35rem;
+      color: var(--accent-primary);
+      font-weight: bold;
+      font-size: 1.1rem;
+      line-height: 1.3;
+    }
+
+    /* Chips & Tags for May Groups / August Experiences */
+    .chips-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.8rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .chip i {
+      width: 14px;
+      height: 14px;
+      color: var(--accent-secondary);
+    }
+
+    /* Sentido Institucional Callout */
+    .sentido-box {
+      background: linear-gradient(to right, rgba(30, 64, 175, 0.06), rgba(15, 118, 110, 0.05));
+      border-left: 4px solid var(--accent-primary);
+      padding: 1rem 1.25rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    .sentido-box h4 {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-primary);
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .sentido-box p {
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      font-style: italic;
+    }
+
+    /* Evidence Link Cards */
+    .evidencias-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .evidence-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+    }
+
+    .evidence-card:hover {
+      border-color: var(--accent-primary);
+      background: rgba(30, 64, 175, 0.04);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .evidence-info {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.86rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .evidence-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--bg-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--accent-primary);
+    }
+
+    /* Transversal Matrix / Interactive Selector */
+    .transversal-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    @media (max-width: 640px) {
+      .transversal-tabs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .t-tab {
+      padding: 0.75rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .t-tab.active {
+      background: var(--bg-dark);
+      color: #FFF;
+      border-color: var(--bg-dark);
+    }
+
+    .matrix-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      margin-bottom: 1.25rem;
+    }
+
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .matrix-table th {
+      background: var(--bg-secondary);
+      padding: 0.9rem 1.1rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .matrix-table td {
+      padding: 1rem 1.1rem;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.92rem;
+      color: var(--text-primary);
+    }
+
+    .matrix-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .matrix-table tr.highlight-row {
+      background: rgba(217, 119, 6, 0.08);
+    }
+
+    /* Portfolio Status & Interactive Checklist */
+    .status-columns {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .status-columns {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .status-box {
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.35rem;
+      background: var(--bg-secondary);
+    }
+
+    .status-box.pending {
+      background: rgba(217, 119, 6, 0.06);
+      border-color: rgba(217, 119, 6, 0.35);
+    }
+
+    .status-box h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-top: 1rem;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .check-item:hover {
+      border-color: var(--accent-primary);
+    }
+
+    .check-item.completed {
+      background: rgba(21, 128, 61, 0.08);
+      border-color: rgba(21, 128, 61, 0.3);
+    }
+
+    .check-item.completed span {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .check-item input[type="checkbox"] {
+      margin-top: 0.25rem;
+      width: 17px;
+      height: 17px;
+      accent-color: var(--accent-emerald);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--bg-dark);
+      color: #E2E8F0;
+      padding: 3rem 1.5rem;
+      margin-top: 3rem;
+      border-top: 4px solid var(--accent-gold);
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .footer-aside {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      max-width: 540px;
+    }
+
+    .footer-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    /* Toast Notification */
+    #toast {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: var(--bg-dark);
+      color: #FFF;
+      padding: 0.85rem 1.25rem;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transform: translateY(150%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 2000;
+      border-left: 4px solid var(--accent-gold);
+    }
+
+    #toast.show {
+      transform: translateY(0);
+    }
+
+    /* Search Highlight */
+    mark.search-match {
+      background: rgba(245, 158, 11, 0.35);
+      color: inherit;
+      padding: 0 2px;
+      border-radius: 3px;
+    }
+
+    .hidden-by-filter {
+      display: none !important;
+    }
+
+    /* Print Styles */
+    @media print {
+      .topbar, .sidebar, .jornadas-controls, .hero-actions, #reading-progress, #toast {
+        display: none !important;
+      }
+      .layout {
+        display: block;
+        padding: 0;
+      }
+      .section-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #CCC;
+        margin-bottom: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress"></div>
+
+  <!-- Sticky Topbar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="#" class="brand">
+        <div class="brand-badge">IL</div>
+        <div class="brand-text">
+          <span class="brand-title">Instituto Leibnitz</span>
+          <span class="brand-subtitle">Memoria Institucional · Formación Situada 2026</span>
+        </div>
+      </a>
+
+      <div class="top-actions">
+        <div class="search-wrapper">
+          <i data-lucide="search"></i>
+          <input type="text" id="searchInput" class="search-input" placeholder="Buscar ejes, carreras, RAI..." aria-label="Buscar en el documento">
+        </div>
+
+        <button class="btn" id="toggleAllBtn" title="Desplegar o contraer todas las secciones">
+          <i data-lucide="chevrons-up-down"></i>
+          <span>Contraer todo</span>
+        </button>
+
+        <button class="btn" id="printBtn" title="Imprimir o guardar como PDF">
+          <i data-lucide="printer"></i>
+          <span>Exportar PDF</span>
+        </button>
+
+        <button class="btn" id="themeToggleBtn" title="Cambiar modo de lectura claro/oscuro">
+          <i data-lucide="moon" id="themeIcon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <div>
+        <div class="hero-pill">
+          <span>📘</span>
+          <span>Portafolio Institucional 2026 · Villa María, Córdoba</span>
+        </div>
+        <h1>Memoria de las Jornadas de Formación Situada 2026</h1>
+        <p class="hero-lead">
+          Un recorrido colectivo orientado a fortalecer la enseñanza, adecuar los marcos académicos mediante el Régimen Académico Institucional (RAI) y profundizar las prácticas de innovación y articulación entre carreras.
+        </p>
+        <div class="hero-actions">
+          <a href="#recorrido" class="btn btn-primary">
+            <i data-lucide="compass"></i>
+            <span>Explorar el Recorrido 2026</span>
+          </a>
+          <a href="#evidencias-portafolio" class="btn btn-gold">
+            <i data-lucide="folder-open"></i>
+            <span>Ver Evidencias y Continuidad</span>
+          </a>
+          <a href="https://app.notion.com/p/Memoria-institucional-2026-Portafolio-de-Jornadas-de-Formaci-n-Situada-413be02e5cbf81f29c48d1f5d932a180?pvs=21" target="_blank" rel="noopener noreferrer" class="btn" style="background: rgba(255,255,255,0.1); color: #FFF; border-color: rgba(255,255,255,0.25);">
+            <i data-lucide="external-link"></i>
+            <span>Abrir Portafolio en Notion</span>
+          </a>
+        </div>
+      </div>
+
+      <aside class="aside-callout">
+        <div class="aside-callout-header">
+          <span>📘</span>
+          <span>Síntesis del Documento</span>
+        </div>
+        <p>
+          Memoria institucional de las Jornadas de Formación Situada 2026 del Instituto Leibnitz. Este portafolio reúne los principales ejes de trabajo, propósitos, líneas de acción y evidencias documentales disponibles en Notion.
+        </p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num">3</span>
+            <span class="stat-label">Hitos Clave</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">5</span>
+            <span class="stat-label">Propósitos</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">8</span>
+            <span class="stat-label">Documentos Notion</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Main Content Layout -->
+  <div class="layout">
+    <!-- Sticky Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-title">
+        <span>Índice de Lectura</span>
+        <i data-lucide="book-open" style="width:14px;height:14px;"></i>
+      </div>
+      <ul class="nav-list">
+        <li><a href="#presentacion" class="nav-link active"><i data-lucide="file-text"></i> Presentación</a></li>
+        <li><a href="#propositos" class="nav-link"><i data-lucide="target"></i> Propósitos</a></li>
+        <li><a href="#recorrido" class="nav-link"><i data-lucide="calendar-range"></i> Recorrido 2026</a></li>
+        <li><a href="#lectura-transversal" class="nav-link"><i data-lucide="git-merge"></i> Lectura Transversal</a></li>
+        <li><a href="#evidencias-portafolio" class="nav-link"><i data-lucide="archive"></i> Producciones y Evidencias</a></li>
+        <li><a href="#balance-proyeccion" class="nav-link"><i data-lucide="check-square"></i> Balance y Proyección</a></li>
+        <li><a href="#criterio-lectura" class="nav-link"><i data-lucide="info"></i> Criterio de Lectura</a></li>
+      </ul>
+
+      <div class="sidebar-box">
+        <div class="sidebar-box-title">
+          <i data-lucide="list-checks" style="width:15px;height:15px;color:var(--accent-teal);"></i>
+          <span>Seguimiento de Continuidad</span>
+        </div>
+        <p style="font-size: 0.76rem; color: var(--text-muted);">
+          Marcá las líneas sugeridas en la sección de Balance para simular el avance institucional:
+        </p>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="continuityProgressBar"></div>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:0.75rem; font-weight:600;">
+          <span id="continuityCountText">0 de 5 líneas activas</span>
+          <span id="continuityPercentText">0%</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Articles -->
+    <main class="content-area" id="searchableContent">
+
+      <!-- 1. PRESENTACIÓN -->
+      <section id="presentacion" class="section-card">
+        <div class="section-header">
+          <div>
+            <div class="section-eyebrow"><i data-lucide="sparkles"></i> Encuadre General</div>
+            <h2 class="section-title">Presentación</h2>
+          </div>
+          <button class="btn" onclick="copySectionText('presentacion', 'Presentación copiada al portapapeles')">
+            <i data-lucide="copy"></i>
+            <span>Copiar síntesis</span>
+          </button>
+        </div>
+        <div class="prose">
+          <p>
+            Durante 2026, el <strong>Instituto Leibnitz</strong> desarrolló un proceso de formación situada orientado a fortalecer la enseñanza, revisar los marcos académicos y profundizar las prácticas de innovación institucional. Las jornadas se concibieron como espacios de trabajo colectivo: análisis de la normativa, reflexión sobre las trayectorias estudiantiles, planificación pedagógica y articulación entre carreras.
+          </p>
+          <p>
+            Esta memoria adopta el formato de <strong>portafolio institucional</strong>. No se limita a enumerar encuentros: organiza el recorrido, explicita los propósitos y deja identificadas las producciones y evidencias que permiten reconstruir el proceso.
+          </p>
+        </div>
+      </section>
+
+      <!-- 2. PROPÓSITOS INSTITUCIONALES -->
+      <section id="propositos" class="section-card">
+        <div class="section-header">
+          <div>
+            <div class="section-eyebrow"><i data-lucide="target"></i> Horizonte Pedagógico</div>
+            <h2 class="section-title">Propósitos institucionales</h2>
+          </div>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Hacé clic en una tarjeta para destacarla</span>
+        </div>
+
+        <div class="purposes-grid">
+          <div class="purpose-card" onclick="this.classList.toggle('highlighted')">
+            <div class="purpose-top">
+              <div class="purpose-icon"><i data-lucide="users"></i></div>
+              <span class="purpose-num">01</span>
+            </div>
+            <p class="purpose-text">Fortalecer los acuerdos pedagógicos y organizativos entre equipos docentes, coordinaciones y conducción.</p>
+          </div>
+
+          <div class="purpose-card" onclick="this.classList.toggle('highlighted')">
+            <div class="purpose-top">
+              <div class="purpose-icon"><i data-lucide="scale"></i></div>
+              <span class="purpose-num">02</span>
+            </div>
+            <p class="purpose-text">Adecuar el Régimen Académico Marco a las características y necesidades del Instituto mediante la construcción del Régimen Académico Institucional.</p>
+          </div>
+
+          <div class="purpose-card" onclick="this.classList.toggle('highlighted')">
+            <div class="purpose-top">
+              <div class="purpose-icon"><i data-lucide="route"></i></div>
+              <span class="purpose-num">03</span>
+            </div>
+            <p class="purpose-text">Acompañar el ingreso, la permanencia y el egreso, atendiendo a la diversidad de trayectorias.</p>
+          </div>
+
+          <div class="purpose-card" onclick="this.classList.toggle('highlighted')">
+            <div class="purpose-top">
+              <div class="purpose-icon"><i data-lucide="lightbulb"></i></div>
+              <span class="purpose-num">04</span>
+            </div>
+            <p class="purpose-text">Promover propuestas de innovación, integración curricular y articulación entre carreras.</p>
+          </div>
+
+          <div class="purpose-card" onclick="this.classList.toggle('highlighted')">
+            <div class="purpose-top">
+              <div class="purpose-icon"><i data-lucide="bar-chart-3"></i></div>
+              <span class="purpose-num">05</span>
+            </div>
+            <p class="purpose-text">Recuperar información de la autoevaluación institucional para orientar decisiones y prioridades de mejora.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. RECORRIDO 2026 (DESPLEGABLES INTERACTIVOS) -->
+      <section id="recorrido" class="section-card">
+        <div class="section-header">
+          <div>
+            <div class="section-eyebrow"><i data-lucide="calendar-range"></i> Cronología y Desplegables</div>
+            <h2 class="section-title">Recorrido 2026</h2>
+          </div>
+        </div>
+
+        <!-- Interactive Filter & Accordion Controls -->
+        <div class="jornadas-controls">
+          <div class="filter-pills" role="tablist" aria-label="Filtrar jornadas por mes">
+            <button class="pill-btn active" onclick="filterJornadas('all', this)">Todas las jornadas (3)</button>
+            <button class="pill-btn" onclick="filterJornadas('febrero', this)">1. Febrero · Organización</button>
+            <button class="pill-btn" onclick="filterJornadas('mayo', this)">2. Mayo · Construcción RAI</button>
+            <button class="pill-btn" onclick="filterJornadas('agosto', this)">3. Agosto · Innovación</button>
+          </div>
+          <div style="display:flex; gap:0.4rem;">
+            <button class="btn" onclick="setJornadasState(true)" style="padding: 0.35rem 0.7rem; font-size:0.78rem;">
+              <i data-lucide="maximize-2"></i> Abrir todas
+            </button>
+            <button class="btn" onclick="setJornadasState(false)" style="padding: 0.35rem 0.7rem; font-size:0.78rem;">
+              <i data-lucide="minimize-2"></i> Cerrar todas
+            </button>
+          </div>
+        </div>
+
+        <!-- JORNADA 1: FEBRERO -->
+        <details class="jornada-accordion" data-jornada="febrero" open>
+          <summary class="jornada-summary">
+            <div class="jornada-summary-left">
+              <span class="jornada-date-badge">
+                <i data-lucide="calendar" style="width:14px;height:14px;"></i>
+                20 Feb 2026
+              </span>
+              <div class="jornada-heading">
+                <h3>1. Jornada de febrero — Organización pedagógica y condiciones de enseñanza</h3>
+                <p>Fecha registrada: 20 de febrero de 2026 · 3 evidencias documentales</p>
+              </div>
+            </div>
+            <div class="chevron-icon"><i data-lucide="chevron-down"></i></div>
+          </summary>
+
+          <div class="jornada-body">
+            <p class="jornada-intro">
+              La jornada reunió líneas de trabajo vinculadas con la organización del ciclo lectivo y la implementación de nuevas orientaciones académicas.
+            </p>
+
+            <!-- Sub-desplegable: Ejes abordados -->
+            <details class="sub-accordion" open>
+              <summary class="sub-summary">
+                <span class="sub-summary-title"><i data-lucide="layers"></i> Ejes abordados</span>
+                <i data-lucide="chevron-down" style="width:16px;height:16px;"></i>
+              </summary>
+              <div class="sub-content">
+                <ul class="styled-list">
+                  <li>Organización pedagógica de primer año de la <strong>Tecnicatura Superior en Gestión Administrativa (TSGA)</strong>, en el marco del nuevo Régimen Académico Marco.</li>
+                  <li>Articulación entre docentes, coordinación de carrera y equipo de apoyo externo para acompañar trayectorias que requieren <strong>adecuaciones curriculares de acceso</strong>.</li>
+                  <li>Planificación del <strong>Ciclo Propedéutico — Seminario de Ingreso a la Educación Superior (SIES)</strong>, con modalidad combinada, instancias virtuales y encuentros presenciales de integración.</li>
+                  <li>Conformación de una comisión para diseñar el <strong>Régimen Académico Institucional (RAI)</strong>, contemplando créditos, reconocimiento de saberes y acompañamiento de trayectorias.</li>
+                </ul>
+              </div>
+            </details>
+
+            <!-- Sentido Institucional -->
+            <div class="sentido-box">
+              <h4><i data-lucide="compass" style="width:15px;height:15px;"></i> Sentido institucional</h4>
+              <p>
+                La primera instancia puso el foco en las condiciones concretas para enseñar y aprender. La inclusión, el ingreso y la organización académica se abordaron como responsabilidades institucionales que requieren acuerdos y estrategias compartidas.
+              </p>
+            </div>
+
+            <!-- Evidencias disponibles -->
+            <div>
+              <h4 style="font-size: 0.85rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">
+                Evidencias disponibles en Notion
+              </h4>
+              <div class="evidencias-grid">
+                <a href="https://app.notion.com/p/TSGA-Reuni-n-con-docentes-de-1-a-o-303be02e5cbf802d8a07ff1f9b978257?pvs=21" target="_blank" rel="noopener noreferrer" class="evidence-card">
+                  <div class="evidence-info">
+                    <div class="evidence-icon"><i data-lucide="file-check-2"></i></div>
+                    <span>TSGA Reunión con docentes de 1° año</span>
+                  </div>
+                  <i data-lucide="arrow-up-right" style="width:16px;height:16px;color:var(--text-muted);flex-shrink:0;"></i>
+                </a>
+
+                <a href="https://app.notion.com/p/Estrategias-Pedag-gicas-para-el-Ciclo-Proped-utico-S-I-E-S-303be02e5cbf8054b99fe46e9d4d2450?pvs=21" target="_blank" rel="noopener noreferrer" class="evidence-card">
+                  <div class="evidence-info">
+                    <div class="evidence-icon"><i data-lucide="graduation-cap"></i></div>
+                    <span>Estrategias Pedagógicas para el Ciclo Propedéutico (S.I.E.S.)</span>
+                  </div>
+                  <i data-lucide="arrow-up-right" style="width:16px;height:16px;color:var(--text-muted);flex-shrink:0;"></i>
+                </a>
+
+                <a href="https://app.notion.com/p/Comisi-n-para-el-Dise-o-del-R-A-I-R-gimen-Acad-mico-Institucional-303be02e5cbf8069bf97caf3dadc92f5?pvs=21" target="_blank" rel="noopener noreferrer" class="evidence-card">
+                  <div class="evidence-info">
+                    <div class="evidence-icon"><i data-lucide="book-marked"></i></div>
+                    <span>Comisión para el Diseño del R.A.I. (Régimen Académico Institucional)</span>
+                  </div>
+                  <i data-lucide="arrow-up-right" style="width:16px;height:16px;color:var(--text-muted);flex-shrink:0;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- JORNADA 2: MAYO -->
+        <details class="jornada-accordion" data-jornada="mayo" open>
+          <summary class="jornada-summary">
+            <div class="jornada-summary-left">
+              <span class="jornada-date-badge mayo">
+                <i data-lucide="calendar" style="width:14px;height:14px;"></i>
+                13 May 2026
+              </span>
+              <div class="jornada-heading">
+                <h3>2. Jornada de mayo — Construcción colectiva del Régimen Académico Institucional</h3>
+                <p>Fecha registrada: 13 de mayo de 2026 · 2 evidencias documentales</p>
+              </div>
+            </div>
+            <div class="chevron-icon"><i data-lucide="chevron-down"></i></div>
+          </summary>
+
+          <div class="jornada-body">
+            <p class="jornada-intro">
+              La jornada estuvo centrada en el análisis del Régimen Académico Marco y en la elaboración de acuerdos para construir una normativa institucional situada.
+            </p>
+
+            <!-- Sub-desplegable: Modalidad y Organización de grupos -->
+            <details class="sub-accordion" open>
+              <summary class="sub-summary">
+                <span class="sub-summary-title"><i data-lucide="users-round"></i> Modalidad de trabajo y Organización de los grupos</span>
+                <i data-lucide="chevron-down" style="width:16px;height:16px;"></i>
+              </summary>
+              <div class="sub-content">
+                <p style="font-size: 0.93rem; color: var(--text-secondary); margin-bottom: 0.85rem;">
+                  Se organizaron grupos por carrera y un grupo transversal para abordar los artículos comunes. Los equipos analizaron la normativa, debatieron su pertinencia, formularon propuestas y compartieron sus conclusiones en un plenario.
+                </p>
+                <div class="chips-container">
+                  <span class="chip"><i data-lucide="cpu"></i> Analista en Sistemas</span>
+                  <span class="chip"><i data-lucide="hard-drive"></i> Técnico en Hardware</span>
+                  <span class="chip"><i data-lucide="briefcase"></i> Gestión Administrativa</span>
+                  <span class="chip"><i data-lucide="megaphone"></i> Marketing Digital</span>
+                  <span class="chip" style="border-color: var(--accent-primary);"><i data-lucide="git-Fork"></i> Grupo transversal: artículos comunes a todas las carreras</span>
+                </div>
+              </div>
+            </details>
+
+            <!-- Sub-desplegable: Temas de análisis -->
+            <details class="sub-accordion" open>
+              <summary class="sub-summary">
+                <span class="sub-summary-title"><i data-lucide="list-Checks"></i> Temas de análisis (9 ejes normativos)</span>
+                <i data-lucide="chevron-down" style="width:16px;height:16px;"></i>
+              </summary>
+              <div class="sub-content">
+                <ul class="styled-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.65rem;">
+                  <li>Correlatividades y organización de los recorridos académicos.</li>
+                  <li>Asistencia y estrategias de acompañamiento.</li>
+                  <li>Promoción directa y evaluación integradora final.</li>
+                  <li>Condiciones de cursado y materias excluidas del régimen de estudiante libre.</li>
+                  <li>Prácticas profesionalizantes.</li>
+                  <li>Reconocimiento de saberes y sistema de créditos.</li>
+                  <li>Modalidad combinada y presencialidad.</li>
+                  <li>Alertas tempranas y acompañamiento de las trayectorias.</li>
+                  <li>Programa y mapas de egreso.</li>
+                </ul>
+              </div>
+            </details>
+
+            <!-- Sentido Institucional -->
+            <div class="sentido-box">
+              <h4><i data-lucide="compass" style="width:15px;height:15px;"></i> Sentido institucional</h4>
+              <p>
+                El trabajo por carrera permitió considerar las particularidades de cada propuesta formativa, mientras que el grupo transversal favoreció la construcción de criterios comunes. El plenario funcionó como instancia de intercambio y puesta en común.
+              </p>
+            </div>
+
+            <!-- Evidencias disponibles -->
+            <div>
+              <h4 style="font-size: 0.85rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">
+                Evidencias disponibles en Notion
+              </h4>
+              <div class="evidencias-grid">
+                <a href="https://app.notion.com/p/Grupos-de-trabajo-13-de-mayo-33fbe02e5cbf81d3afdcc9f7cfe22c04?pvs=21" target="_blank" rel="noopener noreferrer" class="evidence-card">
+                  <div class="evidence-info">
+                    <div class="evidence-icon"><i data-lucide="users"></i></div>
+                    <span>Grupos de trabajo — 13 de mayo</span>
+                  </div>
+                  <i data-lucide="arrow-up-right" style="width:16px;height:16px;color:var(--text-muted);flex-shrink:0;"></i>
+                </a>
+
+                <a href="https://app.notion.com/p/4-Jornada-Mayo-33fbe02e5cbf803ead4ee96d82e562f0?pvs=21" target="_blank" rel="noopener noreferrer" class="evidence-card">
+                  <div class="evidence-info">
+                    <div class="evidence-icon"><i data-lucide="file-text"></i></div>
+                    <span>4° Jornada Mayo</span>
+                  </div>
+                  <i data-lucide="arrow-up-right" style="width:16px;height:16px;color:var(--text-muted);flex-shrink:0;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- JORNADA 3: AGOSTO -->
+        <details class="jornada-accordion" data-jornada="agosto" open>
+          <summary class="jornada-summary">
+            <div class="jornada-summary-left">
+              <span class="jornada-date-badge agosto">
+                <i data-lucide="calendar" style="width:14px;height:14px;"></i>
+                25 Ago 2026
+              </span>
+              <div class="jornada-heading">
+                <h3>3. Jornada de agosto — Innovación y mejora institucional</h3>
+                <p>Fecha registrada: 25 de agosto de 2026 · 2 evidencias documentales</p>
+              </div>
+            </div>
+            <div class="chevron-icon"><i data-lucide="chevron-down"></i></div>
+          </summary>
+
+          <div class="jornada-body">
+            <p class="jornada-intro">
+              La quinta jornada se orientó a recuperar experiencias institucionales, analizar resultados de la autoevaluación y proyectar líneas de innovación y articulación curricular.
+            </p>
+
+            <!-- Sub-desplegable: Ejes de trabajo documentados -->
+            <details class="sub-accordion" open>
+              <summary class="sub-summary">
+                <span class="sub-summary-title"><i data-lucide="sparkles"></i> Ejes de trabajo documentados</span>
+                <i data-lucide="chevron-down" style="width:16px;height:16px;"></i>
+              </summary>
+              <div class="sub-content">
+                <ul class="styled-list">
+                  <li>Balance de prácticas precursoras y experiencias de <strong>Investigación, Desarrollo e Innovación (I+D+i)</strong>.</li>
+                  <li>Socialización de hallazgos, tensiones y prioridades surgidas de la <strong>autoevaluación institucional</strong>.</li>
+                  <li>Análisis de los lineamientos de <strong>TransFORMAR@Cba</strong> y de la autonomía institucional.</li>
+                  <li>Revisión de programas, articulación de contenidos y proyectos integradores por carrera.</li>
+                  <li>Recuperación y proyección de experiencias intercarreras e intermaterias.</li>
+                </ul>
+              </div>
+            </details>
+
+            <!-- Sub-desplegable: Experiencias y líneas de articulación registradas -->
+            <details class="sub-accordion" open>
+              <summary class="sub-summary">
+                <span class="sub-summary-title"><i data-lucide="rocket"></i> Experiencias y líneas de articulación registradas</span>
+                <i data-lucide="chevron-down" style="width:16px;height:16px;"></i>
+              </summary>
+              <div class="sub-content">
+                <div class="chips-container">
+                  <span class="chip"><i data-lucide="code-2"></i> Hackathon</span>
+                  <span class="chip"><i data-lucide="network"></i> Propuestas intercarreras e intermaterias</span>
+                  <span class="chip"><i data-lucide="calculator"></i> Articulación entre Matemática e Informática en TSGA</span>
+                  <span class="chip"><i data-lucide="eye"></i> Observatorio de Marketing</span>
+                  <span class="chip"><i data-lucide="award"></i> Proyectos integradores y producciones vinculadas con la Feria institucional</span>
+                </div>
+              </div>
+            </details>
+
+            <!-- Sentido Institucional -->
+            <div class="sentido-box">
+              <h4><i data-lucide="compass" style="width:15px;height:15px;"></i> Sentido institucional</h4>
+              <p>
+                Esta instancia desplazó el foco desde la revisión normativa hacia la reflexión sobre las prácticas y sus posibilidades de mejora. La innovación se planteó como un proceso situado, vinculado con la integración de saberes y la construcción de propuestas relevantes para la formación técnica.
+              </p>
+            </div>
+
+            <!-- Evidencia disponible -->
+            <div>
+              <h4 style="font-size: 0.85rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">
+                Evidencia disponible en Notion
+              </h4>
+              <div class="evidencias-grid">
+                <a href="https://app.notion.com/p/5-Jornada-Agosto-3c0be02e5cbf80b3b890f05a81976b50?pvs=21" target="_blank" rel="noopener noreferrer" class="evidence-card">
+                  <div class="evidence-info">
+                    <div class="evidence-icon"><i data-lucide="lightbulb"></i></div>
+                    <span>5° Jornada Agosto</span>
+                  </div>
+                  <i data-lucide="arrow-up-right" style="width:16px;height:16px;color:var(--text-muted);flex-shrink:0;"></i>
+                </a>
+
+                <a href="https://app.notion.com/p/3c5be02e5cbf80bcb6d1fe9c1d9a517d?pvs=21" target="_blank" rel="noopener noreferrer" class="evidence-card">
+                  <div class="evidence-info">
+                    <div class="evidence-icon"><i data-lucide="layout-list"></i></div>
+                    <span>Organización de la Jornada</span>
+                  </div>
+                  <i data-lucide="arrow-up-right" style="width:16px;height:16px;color:var(--text-muted);flex-shrink:0;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <!-- 4. LECTURA TRANSVERSAL DEL PROCESO -->
+      <section id="lectura-transversal" class="section-card">
+        <div class="section-header">
+          <div>
+            <div class="section-eyebrow"><i data-lucide="git-merge"></i> Progresión Pedagógica</div>
+            <h2 class="section-title">Lectura transversal del proceso</h2>
+          </div>
+        </div>
+
+        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+          El recorrido permite reconocer tres movimientos complementarios. Seleccioná cada instancia para resaltar su articulación:
+        </p>
+
+        <div class="transversal-tabs">
+          <button class="t-tab active" onclick="highlightMatrixRow('all', this)">Ver secuencia completa</button>
+          <button class="t-tab" onclick="highlightMatrixRow('feb', this)">1. Movimiento Febrero</button>
+          <button class="t-tab" onclick="highlightMatrixRow('may', this)">2. Movimiento Mayo</button>
+          <button class="t-tab" onclick="highlightMatrixRow('ago', this)">3. Movimiento Agosto</button>
+        </div>
+
+        <div class="matrix-table-wrap">
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th>Instancia</th>
+                <th>Pregunta orientadora</th>
+                <th>Foco</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="row-feb">
+                <td><strong>Febrero</strong></td>
+                <td><em>¿Qué condiciones necesitamos para enseñar y acompañar mejor?</em></td>
+                <td>Organización pedagógica, inclusión e ingreso</td>
+              </tr>
+              <tr id="row-may">
+                <td><strong>Mayo</strong></td>
+                <td><em>¿Qué acuerdos académicos deben orientar nuestras prácticas?</em></td>
+                <td>Construcción colectiva del RAI</td>
+              </tr>
+              <tr id="row-ago">
+                <td><strong>Agosto</strong></td>
+                <td><em>¿Cómo transformamos las prácticas y articulamos los saberes?</em></td>
+                <td>Innovación y mejora institucional</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="prose">
+          <p>
+            La secuencia muestra una progresión: primero, revisar las condiciones de enseñanza y acompañamiento; luego, construir acuerdos institucionales; finalmente, recuperar experiencias y proyectar mejoras. En conjunto, las jornadas ofrecen un marco para vincular normativa, decisiones pedagógicas y prácticas concretas.
+          </p>
+        </div>
+      </section>
+
+      <!-- 5. PRODUCCIONES Y EVIDENCIAS DEL PORTAFOLIO -->
+      <section id="evidencias-portafolio" class="section-card">
+        <div class="section-header">
+          <div>
+            <div class="section-eyebrow"><i data-lucide="archive"></i> Estado Documental</div>
+            <h2 class="section-title">Producciones y evidencias del portafolio</h2>
+          </div>
+        </div>
+
+        <div class="status-columns">
+          <div class="status-box">
+            <h3 style="color: var(--accent-teal);">
+              <i data-lucide="check-circle-2"></i>
+              Documentación recuperada e identificada
+            </h3>
+            <ul class="styled-list">
+              <li>Registros de planificación y encuadre normativo.</li>
+              <li>Propuestas de trabajo por carrera y por equipos.</li>
+              <li>Documentación de grupos de análisis del RAI.</li>
+              <li>Líneas de innovación y articulación curricular.</li>
+              <li>Referencias a experiencias institucionales y proyectos integradores.</li>
+            </ul>
+          </div>
+
+          <div class="status-box pending">
+            <h3 style="color: var(--accent-secondary);">
+              <i data-lucide="clock"></i>
+              Pendiente de completar con evidencias de ejecución
+            </h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+              Actas o relatorías finales, acuerdos efectivamente aprobados, producciones de cada grupo, nóminas de participantes, fotografías, materiales compartidos y evaluación de cada jornada.
+            </p>
+            <p style="font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid rgba(217, 119, 6, 0.25); padding-top: 0.65rem;">
+              <strong>Nota metodológica:</strong> La planificación disponible no permite afirmar por sí sola que todas las propuestas hayan sido implementadas ni que se hayan alcanzado resultados específicos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. BALANCE Y PROYECCIÓN (INTERACTIVE ACTION CHECKLIST) -->
+      <section id="balance-proyeccion" class="section-card">
+        <div class="section-header">
+          <div>
+            <div class="section-eyebrow"><i data-lucide="check-square"></i> Próximos Pasos Interactivos</div>
+            <h2 class="section-title">Balance y proyección</h2>
+          </div>
+          <button class="btn" onclick="copyContinuityPlan()">
+            <i data-lucide="clipboard-check"></i>
+            <span>Copiar plan de continuidad</span>
+          </button>
+        </div>
+
+        <div class="prose" style="margin-bottom: 1.5rem;">
+          <p>
+            Las jornadas de formación situada constituyen una oportunidad para consolidar una cultura institucional basada en el trabajo colaborativo, la reflexión sobre las prácticas y la mejora continua. El desafío siguiente consiste en convertir los acuerdos y propuestas en <strong>decisiones verificables</strong>, con responsables, plazos, evidencias y criterios de seguimiento.
+          </p>
+        </div>
+
+        <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem;">
+          Líneas sugeridas para la continuidad (Tablero de Acción)
+        </h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.85rem;">
+          Podés tildar cada línea de acción para registrar su priorización o avance (se guarda automáticamente en tu navegador):
+        </p>
+
+        <div class="checklist" id="continuityChecklist">
+          <label class="check-item">
+            <input type="checkbox" value="1" onchange="updateChecklistProgress()">
+            <span>Sistematizar y validar los acuerdos construidos para el RAI.</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" value="2" onchange="updateChecklistProgress()">
+            <span>Documentar las estrategias de acompañamiento de trayectorias y las adecuaciones curriculares.</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" value="3" onchange="updateChecklistProgress()">
+            <span>Registrar el grado de implementación de los proyectos integradores.</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" value="4" onchange="updateChecklistProgress()">
+            <span>Recuperar la evaluación docente de las jornadas y las necesidades de formación emergentes.</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" value="5" onchange="updateChecklistProgress()">
+            <span>Establecer indicadores sencillos para valorar avances y revisar prioridades.</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- 7. CRITERIO DE LECTURA -->
+      <section id="criterio-lectura" class="section-card">
+        <div class="section-header">
+          <div>
+            <div class="section-eyebrow"><i data-lucide="info"></i> Transparencia Documental</div>
+            <h2 class="section-title">Criterio de lectura de esta memoria</h2>
+          </div>
+        </div>
+        <div class="prose">
+          <p>
+            Este documento reconstruye el proceso a partir de los registros disponibles en Notion. Distingue los ejes planificados y documentados de los resultados que requieren evidencias adicionales. Su contenido podrá actualizarse a medida que se incorporen actas, producciones y evaluaciones de cada instancia.
+          </p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-aside">
+        <div class="footer-icon">🏛️</div>
+        <div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: #FFF; margin-bottom: 0.25rem;">
+            Instituto Leibnitz · Villa María, Córdoba
+          </h4>
+          <p style="font-size: 0.9rem; color: #CBD5E1;">
+            Memoria institucional — Jornadas de Formación Situada 2026<br>
+            Documento de sistematización y portafolio de evidencias.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <a href="https://app.notion.com/p/Memoria-institucional-2026-Portafolio-de-Jornadas-de-Formaci-n-Situada-413be02e5cbf81f29c48d1f5d932a180?pvs=21" target="_blank" rel="noopener noreferrer" class="btn btn-gold">
+          <i data-lucide="external-link"></i>
+          <span>Memoria institucional 2026 — Portafolio en Notion</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div id="toast" role="status" aria-live="polite">
+    <i data-lucide="check-circle" style="width:18px;height:18px;color:var(--accent-gold);"></i>
+    <span id="toastMessage">Acción completada</span>
+  </div>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // 1. Reading Progress Bar & ScrollSpy
+    const progressBar = document.getElementById('reading-progress');
+    const sections = document.querySelectorAll('.section-card');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = `${progress}%`;
+
+      // Active section in sidebar
+      let currentId = 'presentacion';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 130;
+        if (scrollTop >= top) {
+          currentId = sec.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
+      });
+    });
+
+    // 2. Dark / Light Theme Toggle
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeIcon = document.getElementById('themeIcon');
+    let isDark = false;
+
+    themeToggleBtn.addEventListener('click', () => {
+      isDark = !isDark;
+      document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      themeIcon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+      lucide.createIcons();
+      showToast(isDark ? 'Modo de lectura nocturno activado' : 'Modo de lectura cálido activado');
+    });
+
+    // 3. Expand / Collapse All Accordions
+    const toggleAllBtn = document.getElementById('toggleAllBtn');
+    let allExpanded = true;
+
+    toggleAllBtn.addEventListener('click', () => {
+      allExpanded = !allExpanded;
+      const details = document.querySelectorAll('details');
+      details.forEach(d => d.open = allExpanded);
+      toggleAllBtn.querySelector('span').textContent = allExpanded ? 'Contraer todo' : 'Desplegar todo';
+      showToast(allExpanded ? 'Todas las secciones desplegadas' : 'Todas las secciones contraídas');
+    });
+
+    function setJornadasState(openState) {
+      document.querySelectorAll('.jornada-accordion, .sub-accordion').forEach(d => {
+        d.open = openState;
+      });
+      showToast(openState ? 'Jornadas desplegadas' : 'Jornadas contraídas');
+    }
+
+    // 4. Filter Jornadas by Month
+    function filterJornadas(month, btn) {
+      document.querySelectorAll('.filter-pills .pill-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.jornada-accordion');
+      cards.forEach(card => {
+        if (month === 'all' || card.dataset.jornada === month) {
+          card.classList.remove('hidden-by-filter');
+          if (month !== 'all') card.open = true;
+        } else {
+          card.classList.add('hidden-by-filter');
+        }
+      });
+    }
+
+    // 5. Matrix Row Highlighter
+    function highlightMatrixRow(rowKey, btn) {
+      document.querySelectorAll('.transversal-tabs .t-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const rows = {
+        feb: document.getElementById('row-feb'),
+        may: document.getElementById('row-may'),
+        ago: document.getElementById('row-ago')
+      };
+
+      Object.keys(rows).forEach(k => {
+        rows[k].classList.toggle('highlight-row', rowKey === k);
+      });
+    }
+
+    // 6. Interactive Checklist with LocalStorage Persistence
+    const checkboxes = document.querySelectorAll('#continuityChecklist input[type="checkbox"]');
+    const progressFill = document.getElementById('continuityProgressBar');
+    const countText = document.getElementById('continuityCountText');
+    const percentText = document.getElementById('continuityPercentText');
+
+    function loadChecklistState() {
+      try {
+        const saved = JSON.parse(localStorage.getItem('leibnitz_memoria_2026_checks') || '[]');
+        checkboxes.forEach(cb => {
+          if (saved.includes(cb.value)) {
+            cb.checked = true;
+            cb.closest('.check-item').classList.add('completed');
+          }
+        });
+        updateChecklistProgress(false);
+      } catch (e) {}
+    }
+
+    function updateChecklistProgress(notify = true) {
+      let checkedCount = 0;
+      const checkedValues = [];
+
+      checkboxes.forEach(cb => {
+        const item = cb.closest('.check-item');
+        if (cb.checked) {
+          checkedCount++;
+          checkedValues.push(cb.value);
+          item.classList.add('completed');
+        } else {
+          item.classList.remove('completed');
+        }
+      });
+
+      const total = checkboxes.length;
+      const pct = Math.round((checkedCount / total) * 100);
+      progressFill.style.width = `${pct}%`;
+      countText.textContent = `${checkedCount} de ${total} líneas activas`;
+      percentText.textContent = `${pct}%`;
+
+      try {
+        localStorage.setItem('leibnitz_memoria_2026_checks', JSON.stringify(checkedValues));
+      } catch (e) {}
+
+      if (notify) {
+        showToast(`Seguimiento actualizado: ${checkedCount}/${total} líneas completadas`);
+      }
+    }
+
+    loadChecklistState();
+
+    // 7. Live Search Filter
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.trim().toLowerCase();
+      const jornadas = document.querySelectorAll('.jornada-accordion');
+
+      if (!query) {
+        sections.forEach(s => s.style.display = '');
+        jornadas.forEach(j => j.classList.remove('hidden-by-filter'));
+        return;
+      }
+
+      // Open details when searching so matches are visible
+      document.querySelectorAll('details').forEach(d => d.open = true);
+
+      sections.forEach(sec => {
+        const text = sec.textContent.toLowerCase();
+        sec.style.display = text.includes(query) ? '' : 'none';
+      });
+    });
+
+    // 8. Print / PDF Export
+    document.getElementById('printBtn').addEventListener('click', () => {
+      // Open all accordions before printing so all content is included
+      document.querySelectorAll('details').forEach(d => d.open = true);
+      window.print();
+    });
+
+    // 9. Copy Helpers & Toast
+    function copySectionText(sectionId, message) {
+      const sec = document.getElementById(sectionId);
+      if (!sec) return;
+      const text = sec.querySelector('.prose')?.innerText || sec.innerText;
+      navigator.clipboard.writeText(text).then(() => showToast(message));
+    }
+
+    function copyContinuityPlan() {
+      const items = Array.from(document.querySelectorAll('#continuityChecklist .check-item')).map(item => {
+        const checked = item.querySelector('input').checked ? '[✓]' : '[ ]';
+        const label = item.querySelector('span').innerText;
+        return `${checked} ${label}`;
+      });
+      const summary = `Líneas sugeridas para la continuidad — Instituto Leibnitz (2026):\n\n` + items.join('\n');
+      navigator.clipboard.writeText(summary).then(() => {
+        showToast('Plan de continuidad copiado al portapapeles');
+      });
+    }
+
+    let toastTimeout;
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMessage').textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => toast.classList.remove('show'), 2800);
+    }
+  </script>
+</body>
+</html>
